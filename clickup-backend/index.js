@@ -8,6 +8,11 @@ require("dotenv").config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+// ✅ Root route fallback (IMPORTANT)
+app.get("/", (req, res) => {
+  res.redirect(process.env.FRONTEND_URL);
+});
+
 
 /* ========== 1. LOGIN WITH CLICKUP ========== */
 app.get("/auth/login", (req, res) => {

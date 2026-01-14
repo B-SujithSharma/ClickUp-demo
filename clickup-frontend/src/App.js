@@ -7,7 +7,6 @@ import TasksPage from "./components/TasksPage";
 import AllTasksPage from "./components/AllTasksPage";
 import LeaderDetail from "./components/LeaderDetail";
 
-
 import {
   fetchMe,
   fetchMyTasks,
@@ -23,22 +22,33 @@ export default function App() {
   const [myTasks, setMyTasks] = useState([]);
   const [allTasks, setAllTasks] = useState([]);
 
-  // ✅ ONLY for ER Tasks
   const [erLoading, setErLoading] = useState(false);
 
   /* =========================
-     READ TOKEN
+     READ + PERSIST TOKEN ✅
   ========================= */
   useEffect(() => {
-    const t = new URLSearchParams(window.location.search).get("token");
+    const params = new URLSearchParams(window.location.search);
+    const t = params.get("token");
+
     if (t) {
+      // ✅ first login (OAuth redirect)
       setToken(t);
+      localStorage.setItem("clickup_token", t);
+
+      // remove token from URL
       window.history.replaceState({}, document.title, "/");
+    } else {
+      // ✅ page refresh / revisit
+      const savedToken = localStorage.getItem("clickup_token");
+      if (savedToken) {
+        setToken(savedToken);
+      }
     }
   }, []);
 
   /* =========================
-     FETCH USER
+     FETCH USER INFO
   ========================= */
   useEffect(() => {
     if (!token) return;
@@ -53,7 +63,7 @@ export default function App() {
   };
 
   /* =========================
-     LOAD MY TASKS (NO SPINNER)
+     LOAD MY TASKS
   ========================= */
   const loadMyTasks = async () => {
     const data = await fetchMyTasks(token);
@@ -61,7 +71,7 @@ export default function App() {
   };
 
   /* =========================
-     LOAD ALL ER TASKS (WITH SPINNER)
+     LOAD ALL ER TASKS
   ========================= */
   const loadAllTasks = async () => {
     setErLoading(true);
@@ -77,35 +87,32 @@ export default function App() {
      LOGIN PAGE
   ========================= */
   if (!token) {
-  return (
-    <div style={styles.loginWrapper}>
-      <div style={styles.loginGlow} />
-      
-      <div style={styles.loginCard} className="fade-up">
-        <h1 style={styles.loginTitle}>
-          Eternal Robotics
-        </h1>
+    return (
+      <div style={styles.loginWrapper}>
+        <div style={styles.loginGlow} />
 
-        <p style={styles.loginSubtitle}>
-          Internal Operations Dashboard
-        </p>
+        <div style={styles.loginCard} className="fade-up">
+          <h1 style={styles.loginTitle}>Eternal Robotics</h1>
 
-        <button
-          style={styles.loginBtn}
-          className="login-btn-anim"
-          onClick={login}
-        >
-          Login with ClickUp →
-        </button>
+          <p style={styles.loginSubtitle}>
+            Internal Operations Dashboard
+          </p>
 
-        <p style={styles.loginFooter}>
-          Secure enterprise authentication
-        </p>
+          <button
+            style={styles.loginBtn}
+            className="login-btn-anim"
+            onClick={login}
+          >
+            Login with ClickUp →
+          </button>
+
+          <p style={styles.loginFooter}>
+            Secure enterprise authentication
+          </p>
+        </div>
       </div>
-    </div>
-  );
-}
-
+    );
+  }
 
   /* =========================
      APP
@@ -132,19 +139,22 @@ export default function App() {
           path="/my-tasks"
           element={<TasksPage tasks={myTasks} />}
         />
-<Route path="/leader/:id" element={<LeaderDetail />} />
 
-       <Route
-  path="/er-tasks"
-  element={
-    <AllTasksPage
-      tasks={allTasks}
-      loading={erLoading}
-      loadAllTasks={loadAllTasks}
-    />
-  }
-/>
+        <Route
+          path="/leader/:id"
+          element={<LeaderDetail />}
+        />
 
+        <Route
+          path="/er-tasks"
+          element={
+            <AllTasksPage
+              tasks={allTasks}
+              loading={erLoading}
+              loadAllTasks={loadAllTasks}
+            />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

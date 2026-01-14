@@ -49,7 +49,7 @@ export default function App() {
      LOGIN
   ========================= */
   const login = () => {
-    window.location.href = "http://localhost:5000/auth/login";
+    window.location.href = `${process.env.REACT_APP_API_URL}/auth/login`;
   };
 
   /* =========================

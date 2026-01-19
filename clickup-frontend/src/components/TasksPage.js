@@ -27,17 +27,44 @@ export default function TasksPage({ tasks }) {
         onChange={(e) => setSearch(e.target.value)}
       />
 
-      {/* ✅ GRID FIXED HERE */}
-      <div style={styles.tasksGrid}>
-        {filtered.map((t, index) => (
-          <div key={t.id} style={styles.gridCard}>
-            <h4>
-              {index + 1}. {t.name}
-            </h4>
-            <p>Status: {t.status?.status || "N/A"}</p>
-          </div>
-        ))}
-      </div>
+     <div style={styles.tasksGrid}>
+  {filtered.map((t, index) => (
+    <div key={t.id} style={styles.gridCard}>
+
+      {/* STATUS BADGE */}
+      <span
+        style={{
+          ...styles.statusBadge,
+          background:
+            t.status?.status === "in progress"
+              ? "#facc15"
+              : t.status?.status === "done"
+              ? "#22c55e"
+              : "#38bdf8",
+        }}
+      >
+        {t.status?.status || "unknown"}
+      </span>
+
+      {/* TASK NAME → CLICKUP */}
+      <a
+        href={t.url}
+        target="_blank"
+        rel="noreferrer"
+        style={styles.taskLink}
+      >
+        {index + 1}. {t.name}
+      </a>
+
+      {/* STATUS TEXT (OPTIONAL, CLEAN) */}
+      <small style={{ color: "#94a3b8" }}>
+        Status: {t.status?.status || "N/A"}
+      </small>
+
+    </div>
+  ))}
+</div>
+
     </div>
   );
 }

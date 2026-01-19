@@ -715,7 +715,29 @@ execMeta: {
   fontSize: 12,
   color: "#94a3b8",
 },
+statusBadge: {
+  display: "inline-block",
+  padding: "4px 10px",
+  borderRadius: 999,
+  fontSize: 11,
+  fontWeight: 600,
+  color: "#020617",
+  marginBottom: 8,
+  textTransform: "capitalize",
+},
 
+taskLink: {
+  display: "block",
+  fontSize: 14,
+  fontWeight: 500,
+  color: "#38bdf8",
+  textDecoration: "none",
+  marginBottom: 6,
+},
+
+taskLinkHover: {
+  textDecoration: "underline",
+},
 };
 
 export default styles;

@@ -45,19 +45,44 @@ export default function AllTasksPage({
         onChange={(e) => setSearch(e.target.value)}
       />
 
-      <div style={styles.tasksGrid}>
-        {filtered.map((t, index) => (
-          <div key={t.id} style={styles.gridCard}>
-            <h4>
-              {index + 1}. {t.name}
-            </h4>
-            <small>
-              {t.assignees?.map((a) => a.username).join(", ") ||
-                "Unassigned"}
-            </small>
-          </div>
-        ))}
-      </div>
+    <div style={styles.tasksGrid}>
+  {filtered.map((t, index) => (
+    <div key={t.id} style={styles.gridCard}>
+
+      {/* STATUS */}
+      <span
+        style={{
+          ...styles.statusBadge,
+          background:
+            t.status?.status === "in progress"
+              ? "#facc15"
+              : t.status?.status === "done"
+              ? "#22c55e"
+              : "#38bdf8",
+        }}
+      >
+        {t.status?.status || "unknown"}
+      </span>
+
+      {/* TASK NAME (CLICKABLE → CLICKUP) */}
+      <a
+        href={t.url}
+        target="_blank"
+        rel="noreferrer"
+        style={styles.taskLink}
+      >
+        {index + 1}. {t.name}
+      </a>
+
+      {/* ASSIGNEES */}
+      <small style={{ color: "#94a3b8" }}>
+        {t.assignees?.map((a) => a.username).join(", ") ||
+          "Unassigned"}
+      </small>
+
+    </div>
+  ))}
+</div>
     </div>
   );
 }

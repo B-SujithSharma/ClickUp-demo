@@ -738,6 +738,164 @@ taskLink: {
 taskLinkHover: {
   textDecoration: "underline",
 },
+  /* =====================================================
+   🔒 FINAL SAFE OVERRIDES – DO NOT REMOVE ABOVE CODE
+   Purpose:
+   - Lock dashboard into ONE PAGE
+   - Remove scrolling
+   - Fix layout proportions
+   - Enable animations reliably
+   ===================================================== */
+
+/* ===== PAGE CONTAINER LOCK ===== */
+container: {
+  padding: 16,
+  paddingTop: 72,
+  height: "calc(100vh - 56px)",
+  background: "#020617",
+  color: "#e5e7eb",
+  overflow: "hidden",
+},
+
+/* ===== DASHBOARD GRID – ONE PAGE ===== */
+dashboardGrid: {
+  display: "grid",
+  gridTemplateColumns: "1.1fr 1.6fr 1.6fr 1.7fr",
+  gridTemplateRows: "260px 240px",
+  gap: 16,
+  height: "100%",
+  alignItems: "stretch",
+},
+
+/* ===== SNAPSHOT CARD HEIGHT CONTROL ===== */
+snapshotCard: {
+  background: "rgba(15, 23, 42, 0.45)",
+  backdropFilter: "blur(8px)",
+  WebkitBackdropFilter: "blur(8px)",
+  border: "1px solid rgba(148,163,184,0.12)",
+  borderRadius: 14,
+  padding: 16,
+  fontSize: 13,
+  color: "#e5e7eb",
+  height: "100%",
+  animation: "fadeUp 0.4s ease",
+},
+
+/* ===== HERO CARD FIX ===== */
+heroCard: {
+  background: "linear-gradient(135deg, #020617, #0f172a)",
+  borderRadius: 18,
+  padding: 22,
+  border: "1px solid #1e293b",
+  display: "flex",
+  flexDirection: "column",
+  gap: 14,
+  height: "100%",
+  animation: "fadeUp 0.5s ease",
+},
+
+/* ===== LEADERSHIP SLIDESHOW HEIGHT FIX ===== */
+leadershipGlass: {
+  position: "relative",
+  padding: "22px 24px 36px",
+  borderRadius: 18,
+  background: "rgba(15, 23, 42, 0.65)",
+  backdropFilter: "blur(14px)",
+  WebkitBackdropFilter: "blur(14px)",
+  border: "1px solid rgba(148,163,184,0.15)",
+  textAlign: "center",
+  height: "100%",
+  animation: "fadeUp 0.6s ease",
+},
+
+/* ===== EXEC / AGENDA CARDS GRID ===== */
+execGrid: {
+  display: "grid",
+  gridTemplateColumns: "repeat(2, 1fr)",
+  gap: 14,
+  height: "100%",
+},
+
+execCard: {
+  background: "rgba(15,23,42,0.65)",
+  border: "1px solid rgba(148,163,184,0.18)",
+  borderRadius: 16,
+  padding: 16,
+  backdropFilter: "blur(12px)",
+  WebkitBackdropFilter: "blur(12px)",
+  animation: "fadeUp 0.5s ease",
+},
+
+execCardWarn: {
+  background: "rgba(127,29,29,0.25)",
+  border: "1px solid rgba(239,68,68,0.35)",
+  borderRadius: 16,
+  padding: 16,
+  backdropFilter: "blur(12px)",
+  WebkitBackdropFilter: "blur(12px)",
+  animation: "fadeUp 0.5s ease",
+},
+
+/* ===== LEADERSHIP MESSAGE STRIP ===== */
+leaderSection: {
+  marginTop: 0,
+  height: "100%",
+},
+
+leaderRow: {
+  display: "flex",
+  gap: 16,
+  overflowX: "auto",
+  overflowY: "hidden",
+  height: 200,
+  paddingBottom: 4,
+},
+
+leaderCard: {
+  minWidth: 240,
+  background: "rgba(15,23,42,0.6)",
+  border: "1px solid rgba(148,163,184,0.15)",
+  borderRadius: 16,
+  padding: 16,
+  animation: "fadeUp 0.4s ease",
+},
+
+/* ===== TASK GRID (NO SCROLL) ===== */
+tasksGrid: {
+  display: "grid",
+  gridTemplateColumns: "repeat(4, 1fr)",
+  gap: 16,
+  marginTop: 12,
+  animation: "fadeUp 0.4s ease",
+},
+
+/* ===== LEADER DETAIL PAGE SCROLL FIX ===== */
+leaderPage: {
+  minHeight: "100vh",
+  background:
+    "linear-gradient(180deg, #020617 0%, #020617 60%, #0f172a 100%)",
+  padding: "96px 24px",
+  color: "#e5e7eb",
+  animation: "fadeIn 0.6s ease",
+},
+
+/* ===== SMOOTH BUTTON FEEL ===== */
+btn: {
+  transition: "all 0.25s ease",
+},
+btnOutline: {
+  transition: "all 0.25s ease",
+},
+leaderBtn: {
+  transition: "all 0.25s ease",
+},
+overviewBtn: {
+  transition: "all 0.25s ease",
+},
+overviewBtnOutline: {
+  transition: "all 0.25s ease",
+},
+
 };
 
 export default styles;

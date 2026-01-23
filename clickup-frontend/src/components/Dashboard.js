@@ -21,18 +21,18 @@ export default function Dashboard({
     <div style={styles.container}>
       <div style={styles.dashboardGrid}>
 
-        {/* LEFT : LEADERSHIP UPDATES (30%) */}
+        {/* ================= LEFT : LEADERSHIP UPDATES ================= */}
         <div>
           <LeadershipCarousel />
         </div>
 
-        {/* RIGHT : OVERVIEW + WELCOME + EXEC */}
+        {/* ================= RIGHT : SYSTEM OVERVIEW + WELCOME ================= */}
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
 
-          {/* TOP RIGHT */}
+          {/* TOP RIGHT GRID */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-            
-            {/* SYSTEM OVERVIEW */}
+
+            {/* ===== SYSTEM OVERVIEW (UNCHANGED) ===== */}
             <div style={styles.snapshotCard}>
               <h4 style={{ marginBottom: 10 }}>System Overview</h4>
 
@@ -70,6 +70,26 @@ export default function Dashboard({
 
               <hr style={styles.snapshotDivider} />
 
+              <div style={styles.snapshotRow}>
+                <span>Task Load</span>
+                <span
+                  style={
+                    myTasks.length < 8
+                      ? styles.statusGood
+                      : styles.statusWarn
+                  }
+                >
+                  {myTasks.length < 8 ? "Low" : "High"}
+                </span>
+              </div>
+
+              <div style={styles.snapshotRow}>
+                <span>System Health</span>
+                <span style={styles.statusGood}>Operational</span>
+              </div>
+
+              <hr style={styles.snapshotDivider} />
+
               <div style={styles.overviewActions}>
                 <button
                   style={styles.overviewBtn}
@@ -87,54 +107,55 @@ export default function Dashboard({
               </div>
             </div>
 
-            {/* WELCOME */}
+            {/* ===== WELCOME + EXEC CARDS ===== */}
             <div style={styles.heroCard}>
               <h2>Welcome, {user?.username} 👋</h2>
               <p>Eternal Robotics Internal Dashboard</p>
-            </div>
-          </div>
 
-          {/* EXEC CARDS */}
-          <div style={styles.execGrid}>
-            <div style={styles.execCard}>
-              <h4>🏢 Client Visits</h4>
-              <ul style={styles.execList}>
-                <li>Tata Motors · Wed</li>
-                <li>Maruti Suzuki · Fri</li>
-                <li>V-Guard · Next Week</li>
-              </ul>
+              {/* EXEC CARDS MOVED INSIDE WELCOME */}
+              <div style={styles.execGrid}>
+                <div style={styles.execCard}>
+                  <h4>🏢 Client Visits</h4>
+                  <ul style={styles.execList}>
+                    <li>Tata Motors · Wed</li>
+                    <li>Maruti Suzuki · Fri</li>
+                    <li>V-Guard · Next Week</li>
+                  </ul>
+                </div>
+
+                <div style={styles.execCard}>
+                  <h4>📦 Deliverables</h4>
+                  <ul style={styles.execList}>
+                    <li>Pitti Phase-2</li>
+                    <li>Safety AI v1.3</li>
+                    <li>Enterprise PoC</li>
+                  </ul>
+                </div>
+
+                <div style={styles.execCardWarn}>
+                  <h4>🚨 Risks</h4>
+                  <ul style={styles.execList}>
+                    <li>Hardware delays</li>
+                    <li>AI data quality</li>
+                    <li>Site readiness</li>
+                  </ul>
+                </div>
+
+                <div style={styles.execCard}>
+                  <h4>⏳ Milestones</h4>
+                  <ul style={styles.execList}>
+                    <li>Q3 Freeze · 15 Jul</li>
+                    <li>Tata v3 · 22 Jul</li>
+                    <li>Go-Live · 30 Jul</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            <div style={styles.execCard}>
-              <h4>📦 Deliverables</h4>
-              <ul style={styles.execList}>
-                <li>Pitti Phase-2</li>
-                <li>Safety AI v1.3</li>
-                <li>Enterprise PoC</li>
-              </ul>
-            </div>
-
-            <div style={styles.execCardWarn}>
-              <h4>🚨 Risks</h4>
-              <ul style={styles.execList}>
-                <li>Hardware delays</li>
-                <li>AI data quality</li>
-                <li>Site readiness</li>
-              </ul>
-            </div>
-
-            <div style={styles.execCard}>
-              <h4>⏳ Milestones</h4>
-              <ul style={styles.execList}>
-                <li>Q3 Freeze · 15 Jul</li>
-                <li>Tata v3 · 22 Jul</li>
-                <li>Go-Live · 30 Jul</li>
-              </ul>
-            </div>
           </div>
         </div>
 
-        {/* BOTTOM : LEADERSHIP MESSAGES */}
+        {/* ================= BOTTOM : LEADERSHIP MESSAGES ================= */}
         <div style={{ gridColumn: "1 / -1" }}>
           <LeadershipCards />
         </div>

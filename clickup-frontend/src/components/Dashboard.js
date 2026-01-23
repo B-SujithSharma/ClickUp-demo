@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles";
@@ -21,24 +22,14 @@ export default function Dashboard({
     <div style={styles.container}>
       <div style={styles.dashboardGrid}>
 
-        {/* ================= TOP : LEADERSHIP CAROUSEL ================= */}
+        {/* ================= LEADERSHIP (TOP PRIORITY) ================= */}
         <div style={{ gridColumn: "1 / -1" }}>
           <LeadershipCarousel />
-        </div>
-
-        {/* ================= MIDDLE LEFT : LEADERSHIP CARDS ================= */}
-        <div>
           <LeadershipCards />
         </div>
 
-        {/* ================= MIDDLE RIGHT : WELCOME ================= */}
-        <div style={styles.heroCard}>
-          <h2>Welcome, {user?.username} 👋</h2>
-          <p>Eternal Robotics Internal Dashboard</p>
-        </div>
-
-        {/* ================= BOTTOM LEFT : SYSTEM OVERVIEW ================= */}
-        <div style={styles.snapshotCard}>
+        {/* ================= SYSTEM OVERVIEW (LEFT) ================= */}
+        <div style={styles.snapshotCard} className="fade-up">
           <h4 style={{ marginBottom: 10 }}>System Overview</h4>
 
           <div style={styles.snapshotRow}>
@@ -112,42 +103,57 @@ export default function Dashboard({
           </div>
         </div>
 
-        {/* ================= BOTTOM RIGHT : EXECUTIVE OPS ================= */}
-        <div>
+        {/* ================= HERO (RIGHT) ================= */}
+        <div style={styles.heroCard} className="fade-up fade-up-1">
+          <h2>Welcome, {user?.username} 👋</h2>
+          <p>Eternal Robotics Internal Dashboard</p>
+        </div>
+
+        {/* ================= EXECUTIVE OPERATIONS (BOTTOM) ================= */}
+        <div style={{ gridColumn: "1 / -1" }}>
           <div style={styles.execGrid}>
-            <div style={styles.execCard}>
-              <h4>🏢 Client Visits</h4>
+            <div style={styles.execCard} className="fade-up">
+              <h4>🏢 Client Visits & Demos</h4>
               <ul style={styles.execList}>
-                <li>Tata Motors · Wed</li>
-                <li>Maruti Suzuki · Fri</li>
-                <li>V-Guard · Next Week</li>
+                <li>
+                  <strong>Tata Motors</strong>
+                  <span> · Demo · Wed</span>
+                </li>
+                <li>
+                  <strong>Maruti Suzuki</strong>
+                  <span> · Site Visit · Fri</span>
+                </li>
+                <li>
+                  <strong>V Guard</strong>
+                  <span> · AI Review · Next Week</span>
+                </li>
               </ul>
             </div>
 
-            <div style={styles.execCard}>
-              <h4>📦 Deliverables</h4>
+            <div style={styles.execCard} className="fade-up fade-up-1">
+              <h4>📦 Key Deliverables</h4>
               <ul style={styles.execList}>
-                <li>Pitti Phase-2</li>
-                <li>Safety AI v1.3</li>
-                <li>Enterprise PoC</li>
+                <li>Pitti Phase-2 deployment</li>
+                <li>Safety AI v1.3 rollout</li>
+                <li>Enterprise PoC completion</li>
               </ul>
             </div>
 
-            <div style={styles.execCardWarn}>
+            <div style={styles.execCardWarn} className="fade-up fade-up-2">
               <h4>🚨 Risks</h4>
               <ul style={styles.execList}>
-                <li>Hardware delays</li>
-                <li>AI data quality</li>
-                <li>Site readiness</li>
+                <li>Hardware vendor delays</li>
+                <li>AI dataset quality issues</li>
+                <li>Site readiness pending</li>
               </ul>
             </div>
 
-            <div style={styles.execCard}>
+            <div style={styles.execCard} className="fade-up fade-up-3">
               <h4>⏳ Milestones</h4>
               <ul style={styles.execList}>
-                <li>Q3 Freeze · 15 Jul</li>
-                <li>Tata v3 · 22 Jul</li>
-                <li>Go-Live · 30 Jul</li>
+                <li>Q3 roadmap freeze · 15 Jul</li>
+                <li>Tata v3 testing · 22 Jul</li>
+                <li>Enterprise go-live · 30 Jul</li>
               </ul>
             </div>
           </div>

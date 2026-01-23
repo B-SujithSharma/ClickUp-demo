@@ -49,9 +49,15 @@ const styles = {
      PAGE CONTAINER
   ========================= */
   container: {
+    // padding: 18,
+    // paddingTop: 76,
+    // minHeight: "100vh",
+    // background: "#020617",
+    // color: "#e5e7eb",
     padding: 18,
     paddingTop: 76,
-    minHeight: "100vh",
+    height: "100vh",          // ✅ FIX HEIGHT
+    overflow: "hidden",       // ✅ KILL SCROLL
     background: "#020617",
     color: "#e5e7eb",
   },
@@ -60,9 +66,14 @@ const styles = {
      DASHBOARD GRID
   ========================= */
   dashboardGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(4, 1fr)",
-    gap: 16, // ⬅️ compact spacing
+    // display: "grid",
+    // gridTemplateColumns: "repeat(4, 1fr)",
+    // gap: 16, // ⬅️ compact spacing
+      display: "grid",
+      gridTemplateColumns: "1fr 3fr",
+      gridTemplateRows: "auto auto 1fr",
+      gap: 16,
+      height: "100%",
   },
 
   /* =========================
@@ -231,11 +242,11 @@ leaderMeta: {
   heroCard: {
   background: "linear-gradient(135deg, #020617, #0f172a)",
   borderRadius: 18,
-  padding: 24,
+  padding: 18,
   border: "1px solid #1e293b",
   display: "flex",
   flexDirection: "column",
-  gap: 16,
+  gap: 12,
 },
 
 heroHeader: {
@@ -356,15 +367,24 @@ overviewBtnOutline: {
 /* =========================
    LEADERSHIP CARDS STRIP
 ========================= */
-leaderSection: {
-  marginTop: 24,
+// leaderSection: {
+//   marginTop: 24,
+// },
+
+// leaderRow: {
+//   display: "flex",
+//   gap: 16,
+//   overflowX: "auto",
+//   paddingBottom: 8,
+// },
+  leaderSection: {
+  marginTop: 12,
 },
 
 leaderRow: {
   display: "flex",
-  gap: 16,
-  overflowX: "auto",
-  paddingBottom: 8,
+  gap: 12,
+  overflow: "hidden",    
 },
 
 leaderCard: {
@@ -675,7 +695,7 @@ loginFooter: {
 execGrid: {
   marginTop: 32,
   display: "grid",
-  gridTemplateColumns: "repeat(2, 1fr)",
+  gridTemplateColumns: "repeat(4, 1fr)",
   gap: 16,
 },
 

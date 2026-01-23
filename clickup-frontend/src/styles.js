@@ -49,15 +49,9 @@ const styles = {
      PAGE CONTAINER
   ========================= */
   container: {
-    // padding: 18,
-    // paddingTop: 76,
-    // minHeight: "100vh",
-    // background: "#020617",
-    // color: "#e5e7eb",
     padding: 18,
     paddingTop: 76,
-    height: "100vh",          // ✅ FIX HEIGHT
-    overflow: "hidden",       // ✅ KILL SCROLL
+    minHeight: "100vh",
     background: "#020617",
     color: "#e5e7eb",
   },
@@ -66,21 +60,10 @@ const styles = {
      DASHBOARD GRID
   ========================= */
   dashboardGrid: {
-    // display: "grid",
-    // gridTemplateColumns: "repeat(4, 1fr)",
-    // gap: 16, // ⬅️ compact spacing
-      display: "grid",
-      gridTemplateColumns: "0.9fr 2.1fr",
-      gridTemplateRows: "auto 1fr auto",
-      gap: 16,
-      height: "100%",
+    display: "grid",
+    gridTemplateColumns: "repeat(4, 1fr)",
+    gap: 16, // ⬅️ compact spacing
   },
-  welcomeDashboard: {
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
-  gap: 12,
-},
-
 
   /* =========================
      STANDARD GRID CARD
@@ -128,8 +111,8 @@ const styles = {
   ========================= */
   leadershipGlass: {
   position: "relative",
-  padding: "16px 18px 28px",
-  borderRadius: 16,
+  padding: "26px 28px 40px",
+  borderRadius: 18,
   background: "rgba(15, 23, 42, 0.65)",
   backdropFilter: "blur(14px)",
   WebkitBackdropFilter: "blur(14px)",
@@ -248,11 +231,11 @@ leaderMeta: {
   heroCard: {
   background: "linear-gradient(135deg, #020617, #0f172a)",
   borderRadius: 18,
-  padding: 18,
+  padding: 24,
   border: "1px solid #1e293b",
   display: "flex",
   flexDirection: "column",
-  gap: 12,
+  gap: 16,
 },
 
 heroHeader: {
@@ -261,12 +244,11 @@ heroHeader: {
   alignItems: "center",
 },
 
-  
-// dashboardGrid: {
-//   display: "grid",
-//   gridTemplateColumns: "repeat(4, 1fr)",
-//   gap: 16,
-// },
+dashboardGrid: {
+  display: "grid",
+  gridTemplateColumns: "repeat(4, 1fr)",
+  gap: 16,
+},
 /* =========================
    SYSTEM SNAPSHOT (OVERVIEW)
 ========================= */
@@ -374,24 +356,15 @@ overviewBtnOutline: {
 /* =========================
    LEADERSHIP CARDS STRIP
 ========================= */
-// leaderSection: {
-//   marginTop: 24,
-// },
-
-// leaderRow: {
-//   display: "flex",
-//   gap: 16,
-//   overflowX: "auto",
-//   paddingBottom: 8,
-// },
-  leaderSection: {
-  marginTop: 12,
+leaderSection: {
+  marginTop: 24,
 },
 
 leaderRow: {
   display: "flex",
-  gap: 12,
-  overflow: "hidden",    
+  gap: 16,
+  overflowX: "auto",
+  paddingBottom: 8,
 },
 
 leaderCard: {
@@ -700,10 +673,10 @@ loginFooter: {
 ========================= */
 
 execGrid: {
-  marginTop: 12,
+  marginTop: 32,
   display: "grid",
   gridTemplateColumns: "repeat(2, 1fr)",
-  gap: 12,
+  gap: 16,
 },
 
 execCard: {
@@ -765,6 +738,7 @@ taskLink: {
 taskLinkHover: {
   textDecoration: "underline",
 },
+
 };
 
 export default styles;

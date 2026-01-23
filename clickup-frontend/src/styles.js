@@ -70,7 +70,7 @@ const styles = {
     // gridTemplateColumns: "repeat(4, 1fr)",
     // gap: 16, // ⬅️ compact spacing
       display: "grid",
-      gridTemplateColumns: "1fr 3fr",
+      gridTemplateColumns: "0.9fr 2.1fr",
       gridTemplateRows: "auto auto 1fr",
       gap: 16,
       height: "100%",
@@ -122,8 +122,8 @@ const styles = {
   ========================= */
   leadershipGlass: {
   position: "relative",
-  padding: "26px 28px 40px",
-  borderRadius: 18,
+  padding: "18px 20px 32px",
+  borderRadius: 16,
   background: "rgba(15, 23, 42, 0.65)",
   backdropFilter: "blur(14px)",
   WebkitBackdropFilter: "blur(14px)",
@@ -255,11 +255,12 @@ heroHeader: {
   alignItems: "center",
 },
 
-dashboardGrid: {
-  display: "grid",
-  gridTemplateColumns: "repeat(4, 1fr)",
-  gap: 16,
-},
+  
+// dashboardGrid: {
+//   display: "grid",
+//   gridTemplateColumns: "repeat(4, 1fr)",
+//   gap: 16,
+// },
 /* =========================
    SYSTEM SNAPSHOT (OVERVIEW)
 ========================= */
@@ -693,10 +694,10 @@ loginFooter: {
 ========================= */
 
 execGrid: {
-  marginTop: 32,
+  marginTop: 12,
   display: "grid",
   gridTemplateColumns: "repeat(4, 1fr)",
-  gap: 16,
+  gap: 12,
 },
 
 execCard: {

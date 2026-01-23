@@ -71,10 +71,16 @@ const styles = {
     // gap: 16, // ⬅️ compact spacing
       display: "grid",
       gridTemplateColumns: "0.9fr 2.1fr",
-      gridTemplateRows: "auto auto 1fr",
+      gridTemplateRows: "auto 1fr auto",
       gap: 16,
       height: "100%",
   },
+  welcomeDashboard: {
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr",
+  gap: 12,
+},
+
 
   /* =========================
      STANDARD GRID CARD
@@ -122,7 +128,7 @@ const styles = {
   ========================= */
   leadershipGlass: {
   position: "relative",
-  padding: "18px 20px 32px",
+  padding: "16px 18px 28px",
   borderRadius: 16,
   background: "rgba(15, 23, 42, 0.65)",
   backdropFilter: "blur(14px)",
@@ -696,7 +702,7 @@ loginFooter: {
 execGrid: {
   marginTop: 12,
   display: "grid",
-  gridTemplateColumns: "repeat(4, 1fr)",
+  gridTemplateColumns: "repeat(2, 1fr)",
   gap: 12,
 },
 
